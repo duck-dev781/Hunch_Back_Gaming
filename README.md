@@ -1,59 +1,54 @@
 # Hunch_Back_Gaming
 
-**A retro-gaming library and self-hosted play server.**
+**A Nintendo retro-gaming web vault and built-in community.**
 
-Hunch_Back_Gaming is a work-in-progress project for organizing games across classic gaming systems, letting users manage their own legally obtained game files, and playing compatible games in a browser where practical.
+Hunch_Back_Gaming is a work-in-progress website concept for browsing a Nintendo-only retro game catalog, managing a private vault, and bringing players together with built-in friends, messaging, and community features. The user's device should act as a browser client; the intended production architecture runs compatible emulators on the server and streams gameplay to the browser.
 
-> **Legal note:** Hunch_Back_Gaming does not ship copyrighted ROMs, console BIOS files, or proprietary firmware. Users are responsible for ensuring they have the rights to upload, store, and use files. The project should support homebrew, public-domain games, and content whose license explicitly permits redistribution.
+## Current status
 
-## Project goals
+The repository now contains a responsive front-end prototype:
+- `index.html` — page structure and screens.
+- `styles.css` — responsive dark retro-gaming interface.
+- `app.js` — demo catalog filtering, navigation, and local-only interaction examples.
 
-- Browse a library organized by gaming system and generation.
-- Let users upload and manage their own game files.
-- Identify likely systems from supported file extensions, with manual correction.
-- Play supported games in-browser using compatible emulator integrations.
-- Keep per-user saves and preferences separate.
-- Provide an administrator view for storage, users, and system health.
-- Start small, then expand system support after testing compatibility and performance.
+The prototype does **not** yet implement real sign-in, server storage, ROM uploads, network chat, friend accounts, parental controls, or server-side emulation. The chat and settings examples are local UI demonstrations, not real services.
 
-## Planned milestones
+## Product goals
 
-### Phase 1 — Foundation
-- [ ] Build a responsive library interface and project branding.
-- [ ] Document the architecture, setup, and legal boundaries.
-- [ ] Create a system catalog with supported formats and emulator notes.
-- [ ] Add a local development workflow and basic tests.
+- Support **Nintendo retro consoles and handhelds only**, including older home consoles and portable systems; each system must be evaluated for emulator availability and server performance.
+- Organize the catalog by Nintendo system with search and filters.
+- Keep each user's vault private by default.
+- Build site-native accounts, friend requests, messaging, blocking, reporting, and moderation. No external social platform is required.
+- Offer age-appropriate game discovery and parent-configurable permissions.
+- Under-13 accounts will not have ROM-upload access and will use the approved library.
+- Make the server run compatible emulators and stream gameplay to the browser when technically feasible.
+- Share only original homebrew or other content for which redistribution permission has been verified.
 
-### Phase 2 — Local library
-- [ ] Add a backend API and metadata database.
-- [ ] Implement safe ROM upload and validation.
-- [ ] Store game files outside the public web directory.
-- [ ] Add library search, filters, and system categories.
+## Legal boundaries
 
-### Phase 3 — Browser gameplay
-- [ ] Integrate an emulator only where its license and technical requirements permit.
-- [ ] Support user-supplied firmware only where legally permitted.
-- [ ] Add save-state and in-game save handling where supported.
-- [ ] Clearly show which systems are experimental or unsupported.
+Old games are not automatically copyright-free. Do not assume a ROM is legal to redistribute because another website hosts it. Do not bundle or publicly distribute copyrighted game ROMs, proprietary BIOS files, or firmware without permission. A private upload feature is not a guarantee that every upload is lawful. Review rights and applicable law before publishing a catalog or accepting uploads. The project is independent and is not affiliated with or endorsed by Nintendo.
 
-### Phase 4 — Accounts and remote access
-- [ ] Add authentication, per-user library permissions, and quotas.
-- [ ] Add backups and account recovery.
-- [ ] Harden deployment before exposing it to the public internet.
+## Security and child safety requirements before public launch
 
-## Safety and security requirements
+- Implement secure authentication, session handling, account recovery, and per-user authorization.
+- Store uploaded files outside public executable paths; enforce size limits, validate formats, and treat uploads as untrusted.
+- Never execute uploaded files as server programs.
+- Enforce age and parental-consent workflows where legally required; do not rely on a birth-date field alone.
+- Enforce parental permissions on the server, not just in the browser UI.
+- Keep child accounts' ROM upload permission disabled.
+- Build reporting, blocking, moderation, abuse response, privacy controls, and retention/deletion policies before enabling real social features.
+- Use TLS, rate limits, backups, security updates, and operational monitoring before public deployment.
+- Do not expose a development server directly to the public internet.
 
-- Never execute uploaded files on the server.
-- Treat every upload as untrusted; enforce size limits and validate file types.
-- Keep uploaded games and firmware out of executable web paths.
-- Require authentication for uploads and administration.
-- Do not expose the server directly to the public internet until authentication, upload limits, TLS, backups, and update procedures are in place.
-- Do not include copyrighted ROM collections, proprietary BIOS files, or other assets without redistribution permission.
+## Development roadmap
 
-## Development status
-
-The repository is at its initial setup stage. The first implementation target should be a small, working library interface before adding uploads or emulator execution.
+1. **Front-end prototype** — responsive Nintendo-only library and social/family-control screens. (Started)
+2. **Backend foundation** — database, secure accounts, sessions, authorization, and deployment configuration.
+3. **Library and vault** — verified catalog metadata, safe upload policy, storage quotas, and private file handling.
+4. **Community** — friends, messaging, blocking/reporting, moderation tools, and age-aware permissions.
+5. **Remote gameplay** — integrate appropriately licensed emulators, test each system, and stream gameplay from the server.
+6. **Hardening and launch review** — child privacy, legal review, security tests, backup and recovery, and accessibility testing.
 
 ## License
 
-A project license has not yet been selected. Before publishing reusable source code, choose a license for the project's own code and document third-party emulator licenses separately. A code license does not grant rights to game ROMs, trademarks, or firmware.
+A license for the project's own source code has not yet been selected. A code license does not grant rights to Nintendo trademarks, games, ROMs, BIOS files, or firmware.
