@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131f">
+  <meta name="description" content="Hunch_Back_Gaming — a Nintendo retro gaming vault and community concept.">
+  <title>Hunch_Back_Gaming — Retro Game Vault</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Hunch Back Gaming home"><span class="brand-mark">HB</span><span>Hunch_Back_<b>Gaming</b></span></a>
+      <p class="side-label">PLAY</p>
+      <button class="nav-item active" data-view="library"><span>▦</span> Game library</button>
+      <button class="nav-item" data-view="vault"><span>▣</span> My vault</button>
+      <button class="nav-item" data-view="friends"><span>♧</span> Friends <span class="nav-count">2</span></button>
+      <button class="nav-item" data-view="chat"><span>◌</span> Messages</button>
+      <button class="nav-item" data-view="community"><span>✧</span> Community</button>
+      <p class="side-label">YOUR SPACE</p>
+      <button class="nav-item" data-view="settings"><span>⚙</span> Settings</button>
+      <div class="sidebar-bottom"><div class="status-dot"></div><div><strong>Community preview</strong><small>Local demo · not connected</small></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-brand" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb">HUNCH_BACK_GAMING <span>/</span> <b id="crumb">GAME LIBRARY</b></div>
+        <div class="top-actions"><button class="icon-button" data-goto="friends" aria-label="Friends">♧</button><button class="avatar" title="Demo profile">P</button></div>
+      </header>
+      <section class="welcome-row">
+        <div><p class="eyebrow">YOUR RETRO CORNER</p><h1>Ready to <span>press start?</span></h1><p class="subhead">Your Nintendo retro collection, all in one place.</p></div>
+        <div class="pixel-mascot" aria-hidden="true">▟▀▙<br>▌▣▐<br>▙▄▟</div>
+      </section>
+      <section class="notice"><span class="notice-icon">ⓘ</span><p><b>Community preview:</b> This is an interface prototype. Sign-in, uploads, real chat, and remote gameplay need a secure server before they work for real.</p></section>
+      <section id="view-library" class="view">
+        <div class="section-heading"><div><h2>Game library</h2><p>Browse by Nintendo system. Public games must be authorized for distribution.</p></div><span class="pill">NINTENDO ONLY</span></div>
+        <div class="filter-bar"><label class="search-box"><span>⌕</span><input id="gameSearch" type="search" placeholder="Search games or consoles…" aria-label="Search games or consoles"></label><select id="systemFilter" aria-label="Filter by console"><option value="all">All systems</option><option>NES / Famicom</option><option>SNES / Super Famicom</option><option>Game Boy</option><option>Game Boy Color</option><option>Nintendo 64</option><option>Game Boy Advance</option><option>GameCube</option><option>Nintendo DS</option><option>Wii</option><option>Nintendo 3DS</option><option>Virtual Boy</option><option>Other Nintendo retro</option></select></div>
+        <div class="system-strip" id="systemStrip"><button class="system-chip selected" data-system="all">All systems</button><button class="system-chip" data-system="NES / Famicom">NES</button><button class="system-chip" data-system="SNES / Super Famicom">SNES</button><button class="system-chip" data-system="Game Boy">Game Boy</button><button class="system-chip" data-system="Nintendo 64">N64</button><button class="system-chip" data-system="Game Boy Advance">GBA</button><button class="system-chip" data-system="GameCube">GameCube</button><button class="system-chip" data-system="Nintendo DS">DS</button><button class="system-chip" data-system="Wii">Wii</button></div>
+        <div class="game-grid" id="gameGrid"></div>
+        <p class="empty-state hidden" id="emptyState">No matching demo entries. Try another search or system.</p>
+        <p class="footnote">Demo catalog only — these are system categories and sample placeholders, not downloadable ROMs.</p>
+      </section>
+      <section id="view-vault" class="view hidden">
+        <div class="section-heading"><div><h2>My vault</h2><p>Your personal game space, private by default.</p></div></div>
+        <div class="feature-panel"><div class="feature-icon">▣</div><h3>Your vault is waiting</h3><p>In the full service, this page will list your personal games and save data. Uploads will be restricted by account age and rights checks.</p><button class="primary-button" id="vaultInfo">How vaults will work</button><p id="vaultHint" class="inline-hint hidden">This prototype does not store files. Under-13 accounts will use the approved library and won't have ROM upload access.</p></div>
+      </section>
+      <section id="view-friends" class="view hidden">
+        <div class="section-heading"><div><h2>Friends</h2><p>Meet other players right here on Hunch_Back_Gaming.</p></div><button class="primary-button" id="findFriends">Find friends</button></div>
+        <div class="people-list"><div class="person"><div class="person-avatar purple">8</div><div class="person-info"><b>PixelPilot</b><small><i class="online"></i> Online · playing a demo</small></div><button class="outline-button friend-action">Message</button></div><div class="person"><div class="person-avatar orange">K</div><div class="person-info"><b>KoopaKite</b><small>Offline · last seen recently</small></div><button class="outline-button friend-action">Message</button></div></div>
+        <p class="footnote">Sample profiles only. Real accounts, friend requests, blocking and reporting require the backend.</p>
+      </section>
+      <section id="view-chat" class="view hidden">
+        <div class="section-heading"><div><h2>Messages</h2><p>Built-in site chat — no outside social app required.</p></div></div>
+        <div class="chat-panel"><div class="chat-head"><div class="person-avatar purple">8</div><div><b>PixelPilot</b><small>Demo conversation</small></div><span class="pill">FILTERS ON</span></div><div class="chat-messages" id="chatMessages"><div class="message received">Hey! What retro systems do you like?<small>Demo message</small></div><div class="message sent">I like Nintendo games!<small>Demo message</small></div></div><form id="chatForm" class="chat-compose"><input id="chatInput" maxlength="300" placeholder="Write a demo message…" aria-label="Write a demo message"><button class="primary-button" type="submit">Send</button></form><p class="footnote">Messages stay in this browser demo and are not sent to anyone. Real chat needs server-side safety, reporting and moderation.</p></div>
+      </section>
+      <section id="view-community" class="view hidden">
+        <div class="section-heading"><div><h2>Community</h2><p>Share your own original creations and talk retro gaming.</p></div></div>
+        <div class="community-card"><span class="community-icon">✧</span><div><h3>Made something retro?</h3><p>Share original homebrew games or creations you have permission to distribute. Commercial ROMs aren't automatically shareable just because they're available on another site.</p><button class="outline-button" id="communityRules">Community sharing rules</button><p id="rulesHint" class="inline-hint hidden">Only publish content you created or are authorized to redistribute. Reports, moderation and takedown handling must be in place before public sharing launches.</p></div></div>
+      </section>
+      <section id="view-settings" class="view hidden">
+        <div class="section-heading"><div><h2>Settings & family controls</h2><p>Concept preview of customizable permissions.</p></div></div>
+        <div class="settings-panel"><div class="settings-intro"><span class="settings-shield">◇</span><div><h3>Family safety</h3><p>Features can be enabled by default with protective filters. A parent can customize each permission.</p></div></div><div class="setting-row"><div><b>Play approved games</b><small>Age-appropriate library access</small></div><label class="switch"><input type="checkbox" checked><span></span></label></div><div class="setting-row"><div><b>Chat with people</b><small>Filters, block and report tools</small></div><label class="switch"><input type="checkbox" checked><span></span></label></div><div class="setting-row"><div><b>Make friends</b><small>Friend requests and privacy controls</small></div><label class="switch"><input type="checkbox" checked><span></span></label></div><div class="setting-row"><div><b>Share original games</b><small>Rights checks and moderation</small></div><label class="switch"><input type="checkbox" checked><span></span></label></div><div class="setting-row"><div><b>Upload ROM files</b><small>Unavailable to under-13 accounts</small></div><label class="switch"><input type="checkbox"><span></span></label></div><div class="setting-row"><div><b>Community discovery</b><small>Moderated community content</small></div><label class="switch"><input type="checkbox" checked><span></span></label></div><div class="parent-note"><b>Parent-managed account</b><p>These toggles are a visual demo only and do not save permissions. A real child account needs verified parental consent and server-enforced settings.</p></div></div>
+      </section>
+      <footer class="footer"><span>Hunch_Back_Gaming</span><span>Made for Nintendo retro fans · Community safety first</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
